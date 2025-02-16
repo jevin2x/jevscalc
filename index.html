@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 100px;
+        }
+        .calculator{
+            background-color:#373b40;
+            width: 300px;
+            height: 495px;
+            padding: 25px;
+            border-radius: 10px;
+            
+        }
+        .result{
+            background-color:gainsboro;
+           width: 280px;
+           height: 50px;
+           margin-bottom: 30px;
+           font-size:xx-large;
+           padding-left: 10px;
+           padding-right: 10px;
+            font-family: Arial, Helvetica, sans-serif;
+            margin-top: 60px;
+        }
+        .buttons{
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            width: 300px;
+            height: 350px;
+            gap: 10px;
+            
+            
+        }
+        button{
+            font-size: large;
+            font-family: Arial, Helvetica, sans-serif;
+            border-radius: 10px;
+            font-weight: bold;
+            background-color: #555a61;
+            color: white;
+        }
+        .brand{
+            font-size: 40px;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            position: absolute;
+            left: 800px;
+            top: 120px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <label class="brand">CASIO</label>
+    <div class="calculator">
+        
+        <input class="result" readonly><br>
+        <div class="buttons">
+        <button style="background-color: red;" onclick="back()">AC</button>
+        <button style="background-color: red;" onclick="clearresult()">C</button>
+        <button onclick="symbol('%')">%</button>
+        <button onclick="symbol('*')">x</button>
+        <button onclick="symbol('7')">7</button>
+        <button onclick="symbol('8')">8</button>
+        <button onclick="symbol('9')">9</button>
+        <button onclick="symbol('/')">/</button>
+        <button onclick="symbol('4')">4</button>
+        <button onclick="symbol('5')">5</button>
+        <button onclick="symbol('6')">6</button>
+        <button onclick="symbol('-')">-</button>
+        <button onclick="symbol('1')">1</button>
+        <button onclick="symbol('2')">2</button>
+        <button onclick="symbol('3')">3</button>
+        <button onclick="symbol('+')" style="grid-row: span 2;">+</button>
+        <button onclick="symbol('.')">.</button>
+        <button onclick="symbol('0')">0</button>
+        <button onclick="equal()">=</button>
+    </div>
+    </div>
+    <script>
+        const result = document.querySelector(".result");
+
+        function symbol(symbol){
+            result.value += symbol;
+        }
+        function equal(){
+            result.value = eval(result.value);
+        }
+        function clearresult(){
+            result.value = "";
+        }
+        function back(){
+            result.value = result.value.slice(0,-1);
+        }
+    </script>
+</body>
+</html>
